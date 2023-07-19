@@ -4,3 +4,54 @@
   box-sizing: border-box;
   font-family: "Trebuchet MS", sans-serif;
 }
+
+body {
+  background: #c7f0db;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team {
+    width: 100%;
+    max-width: 540px;
+    background: white;
+    margin: 100px 20px;
+    padding: 40px 30px 70px;
+    border-radius: 20px;
+}
+
+.team h2 {
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: lightgray;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+.row input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+}
+
+.row button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #464159;
+    color: white;
+    border-radius: 40px;
+    cursor: pointer;
+}
