@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+img {
+  border-radius: 8px;
+  width: 100px;
+}
+
+img.pyro {
+  background: #df4f4f;
+}
+
+img.hydro {
+  background: #3346f1;
+}
+
+img.anemo {
+  background: #38e9bd;
+}
+
+img.electro {
+  background: #9b32e1;
+}
+
+img.dendro {
+  background: #00d40b;
+}
+
+img.cryo {
+  background: #60dcf5;
+}
+
+img.geo {
+  background: #f7e812;
+}
+
+img.traveler {
+  background: lightgray;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}

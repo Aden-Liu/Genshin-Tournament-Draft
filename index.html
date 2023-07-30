@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="team guoba">
-            <h2>Team Guoba</h2>
-            <div class="row">
-                <input type="text" id="guoba-input" placeholder="Add Member">
-                <button>Add</button>
-            </div>
+      <div class="team guoba">
+        <h2>Team Guoba</h2>
+        <div class="row">
+          <input type="text" id="guoba-input" placeholder="Add Member" />
+          <button onclick="addGuoba()">Add</button>
         </div>
-        <div class="team yuigue">
-            <h2>Team Yuigue</h2>
-            <div class="row">
-                <input type="text" id="yuigue-input" placeholder="Add Member">
-                <button>Add</button>
-            </div>
+        <ul id="guoba-container"></ul>
+      </div>
+
+      <div class="team yuigue">
+        <h2>Team Yuigue</h2>
+        <div class="row">
+          <input type="text" id="yuigue-input" placeholder="Add Member" />
+          <button onclick="addYuigue()">Add</button>
         </div>
+        <ul id="yuigue-container"></ul>
+      </div>
     </div>
-    <script src="script.js"></script>
-</body>
+    <div class="confirm">
+        <a href="draft.html">Finish Team Selection</a>
+    </div>
+    <script src="script.js" defer></script>
+  </body>
 </html>
