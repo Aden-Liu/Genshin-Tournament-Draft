@@ -7,96 +7,103 @@
     <title>It's drafting time</title>
   </head>
   <body>
-    <div class="search">
-      <select name="elements">
-        <option value="0">Select</option>
-        <option value="1">Pyro</option>
-        <option value="2">Hydro</option>
-        <option value="3">Anemo</option>
-        <option value="4">Electro</option>
-        <option value="5">Dendro</option>
-        <option value="6">Cryo</option>
-        <option value="7">Geo</option>
-      </select>
-      <button onclick="filterByElement()">Search</button>
-    </div>
-
     <div class="draft-table">
-      <div class="banned"></div>
-      <div class="guoba-roster"></div>
-      <div class="yuigue-roster"></div>
+      <div class="banned">
+        <h2>Banned Characters</h2>
+      </div>
+      <div class="guoba-roster">
+        <h2>Team Guoba Roster</h2>
+      </div>
+      <div class="yuigue-roster">
+        <h2>Team Yuigue Roster</h2>
+      </div>
     </div>
 
-    <div class="characters">
-      <img src="images/Amber.png" class="pyro character" />
-      <img src="images/Bennett.png" class="pyro character" />
-      <img src="images/Dehya.png" class="pyro character" />
-      <img src="images/Diluc.png" class="pyro character" />
-      <img src="images/Hu Tao.png" class="pyro character" />
-      <img src="images/Klee.png" class="pyro character" />
-      <img src="images/Thoma.png" class="pyro character" />
-      <img src="images/Xiangling.png" class="pyro character" />
-      <img src="images/Xinyan.png" class="pyro character" />
-      <img src="images/Yanfei.png" class="pyro character" />
-      <img src="images/Yoimiya.png" class="pyro character" />
-      <img src="images/Barbara.png" class="hydro character" />
-      <img src="images/Candace.png" class="hydro character" />
-      <img src="images/Ayato.png" class="hydro character" />
-      <img src="images/Mona.png" class="hydro character" />
-      <img src="images/Nilou.png" class="hydro character" />
-      <img src="images/Kokomi.png" class="hydro character" />
-      <img src="images/Childe.png" class="hydro character" />
-      <img src="images/Xingqiu.png" class="hydro character" />
-      <img src="images/Yelan.png" class="hydro character" />
-      <img src="images/Faruzan.png" class="anemo character" />
-      <img src="images/Jean.png" class="anemo character" />
-      <img src="images/Kazuha.png" class="anemo character" />
-      <img src="images/Sayu.png" class="anemo character" />
-      <img src="images/Heizou.png" class="anemo character" />
-      <img src="images/Sucrose.png" class="anemo character" />
-      <img src="images/Venti.png" class="anemo character" />
-      <img src="images/Wanderer.png" class="anemo character" />
-      <img src="images/Xiao.png" class="anemo character" />
-      <img src="images/Beidou.png" class="electro character" />
-      <img src="images/Cyno.png" class="electro character" />
-      <img src="images/Dori.png" class="electro character" />
-      <img src="images/Fischl.png" class="electro character" />
-      <img src="images/Keqing.png" class="electro character" />
-      <img src="images/Sara.png" class="electro character" />
-      <img src="images/Kuki Shinobu.png" class="electro character" />
-      <img src="images/Lisa.png" class="electro character" />
-      <img src="images/Raiden.png" class="electro character" />
-      <img src="images/Razor.png" class="electro character" />
-      <img src="images/Yae Miko.png" class="electro character" />
-      <img src="images/Alhaitham.png" class="dendro character" />
-      <img src="images/Baizhu.png" class="dendro character" />
-      <img src="images/Collei.png" class="dendro character" />
-      <img src="images/Kaveh.png" class="dendro character" />
-      <img src="images/Kirara.png" class="dendro character" />
-      <img src="images/Nahida.png" class="dendro character" />
-      <img src="images/Tighnari.png" class="dendro character" />
-      <img src="images/Yaoyao.png" class="dendro character" />
-      <img src="images/Aloy.png" class="cryo character" />
-      <img src="images/Chongyun.png" class="cryo character" />
-      <img src="images/Diona.png" class="cryo character" />
-      <img src="images/Eula.png" class="cryo character" />
-      <img src="images/Ganyu.png" class="cryo character" />
-      <img src="images/Kaeya.png" class="cryo character" />
-      <img src="images/Ayaka.png" class="cryo character" />
-      <img src="images/Layla.png" class="cryo character" />
-      <img src="images/Mika.png" class="cryo character" />
-      <img src="images/Qiqi.png" class="cryo character" />
-      <img src="images/Rosaria.png" class="cryo character" />
-      <img src="images/Shenhe.png" class="cryo character" />
-      <img src="images/Albedo.png" class="geo character" />
-      <img src="images/Itto.png" class="geo character" />
-      <img src="images/Gorou.png" class="geo character" />
-      <img src="images/Ningguang.png" class="geo character" />
-      <img src="images/Noelle.png" class="geo character" />
-      <img src="images/Yun Jin.png" class="geo character" />
-      <img src="images/Zhongli.png" class="geo character" />
-      <img src="images/Traveler (Anemo).png" class="traveler" />
-      <img src="images/Traveler (Anemo).png" class="traveler" />
+    <div class="draft-form">
+      <div class="search">
+        <select name="elements">
+          <option value="0">Select</option>
+          <option value="1">Pyro</option>
+          <option value="2">Hydro</option>
+          <option value="3">Anemo</option>
+          <option value="4">Electro</option>
+          <option value="5">Dendro</option>
+          <option value="6">Cryo</option>
+          <option value="7">Geo</option>
+        </select>
+        <button onclick="filterByElement()">Search</button>
+      </div>
+      <div class="characters">
+        <img src="images/Amber.png" class="pyro character" />
+        <img src="images/Bennett.png" class="pyro character" />
+        <img src="images/Dehya.png" class="pyro character" />
+        <img src="images/Diluc.png" class="pyro character" />
+        <img src="images/Hu Tao.png" class="pyro character" />
+        <img src="images/Klee.png" class="pyro character" />
+        <img src="images/Thoma.png" class="pyro character" />
+        <img src="images/Xiangling.png" class="pyro character" />
+        <img src="images/Xinyan.png" class="pyro character" />
+        <img src="images/Yanfei.png" class="pyro character" />
+        <img src="images/Yoimiya.png" class="pyro character" />
+        <img src="images/Barbara.png" class="hydro character" />
+        <img src="images/Candace.png" class="hydro character" />
+        <img src="images/Ayato.png" class="hydro character" />
+        <img src="images/Mona.png" class="hydro character" />
+        <img src="images/Nilou.png" class="hydro character" />
+        <img src="images/Kokomi.png" class="hydro character" />
+        <img src="images/Childe.png" class="hydro character" />
+        <img src="images/Xingqiu.png" class="hydro character" />
+        <img src="images/Yelan.png" class="hydro character" />
+        <img src="images/Faruzan.png" class="anemo character" />
+        <img src="images/Jean.png" class="anemo character" />
+        <img src="images/Kazuha.png" class="anemo character" />
+        <img src="images/Sayu.png" class="anemo character" />
+        <img src="images/Heizou.png" class="anemo character" />
+        <img src="images/Sucrose.png" class="anemo character" />
+        <img src="images/Venti.png" class="anemo character" />
+        <img src="images/Wanderer.png" class="anemo character" />
+        <img src="images/Xiao.png" class="anemo character" />
+        <img src="images/Beidou.png" class="electro character" />
+        <img src="images/Cyno.png" class="electro character" />
+        <img src="images/Dori.png" class="electro character" />
+        <img src="images/Fischl.png" class="electro character" />
+        <img src="images/Keqing.png" class="electro character" />
+        <img src="images/Sara.png" class="electro character" />
+        <img src="images/Kuki Shinobu.png" class="electro character" />
+        <img src="images/Lisa.png" class="electro character" />
+        <img src="images/Raiden.png" class="electro character" />
+        <img src="images/Razor.png" class="electro character" />
+        <img src="images/Yae Miko.png" class="electro character" />
+        <img src="images/Alhaitham.png" class="dendro character" />
+        <img src="images/Baizhu.png" class="dendro character" />
+        <img src="images/Collei.png" class="dendro character" />
+        <img src="images/Kaveh.png" class="dendro character" />
+        <img src="images/Kirara.png" class="dendro character" />
+        <img src="images/Nahida.png" class="dendro character" />
+        <img src="images/Tighnari.png" class="dendro character" />
+        <img src="images/Yaoyao.png" class="dendro character" />
+        <img src="images/Aloy.png" class="cryo character" />
+        <img src="images/Chongyun.png" class="cryo character" />
+        <img src="images/Diona.png" class="cryo character" />
+        <img src="images/Eula.png" class="cryo character" />
+        <img src="images/Ganyu.png" class="cryo character" />
+        <img src="images/Kaeya.png" class="cryo character" />
+        <img src="images/Ayaka.png" class="cryo character" />
+        <img src="images/Layla.png" class="cryo character" />
+        <img src="images/Mika.png" class="cryo character" />
+        <img src="images/Qiqi.png" class="cryo character" />
+        <img src="images/Rosaria.png" class="cryo character" />
+        <img src="images/Shenhe.png" class="cryo character" />
+        <img src="images/Albedo.png" class="geo character" />
+        <img src="images/Itto.png" class="geo character" />
+        <img src="images/Gorou.png" class="geo character" />
+        <img src="images/Ningguang.png" class="geo character" />
+        <img src="images/Noelle.png" class="geo character" />
+        <img src="images/Yun Jin.png" class="geo character" />
+        <img src="images/Zhongli.png" class="geo character" />
+        <img src="images/Traveler (Anemo).png" class="traveler" />
+        <img src="images/Traveler (Anemo).png" class="traveler" />
+      </div>
     </div>
 
     <script src="draft.js" defer></script>

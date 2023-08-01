@@ -74,3 +74,9 @@ function filterByElement() {
       break;
   }
 }
+
+for (let i = 0; i < character.length; i++) {
+  character[i].addEventListener("click", function(e) {
+    e.target.
+  })
+}
