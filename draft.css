@@ -6,13 +6,19 @@
 }
 
 body {
-  background: #0B2447;
+  background: #0b2447;
 }
 
 img {
   border-radius: 8px;
   width: 100px;
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+img:hover {
+  border: 6px solid #0b2447;
+  border-radius: 12px;
 }
 
 img.pyro {
@@ -49,7 +55,7 @@ img.traveler {
 
 .characters {
   display: grid;
-  grid-template-columns: repeat(6, auto);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 4px));
   gap: 4px;
   align-items: center;
   justify-content: right;
@@ -75,18 +81,19 @@ img.traveler {
   outline: 0;
   padding: 12px 20px;
   border-radius: 20px;
-  background: #576CBC;
+  background: #576cbc;
   color: white;
   margin-left: 5px;
 }
 
 .draft-table {
-  background: #A5D7E8;
+  background: #a5d7e8;
   display: grid;
   float: left;
   align-items: center;
   justify-content: center;
   width: 50%;
+  max-width: 700px;
   margin: 20px;
   border-radius: 16px;
   row-gap: 30px;
@@ -97,4 +104,8 @@ img.traveler {
   padding-right: 10px;
   width: 45%;
   float: right;
+}
+
+.hidden {
+  display: none;
 }

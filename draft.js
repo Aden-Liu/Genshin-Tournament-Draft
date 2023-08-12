@@ -1,4 +1,4 @@
-const filter = document.querySelector(".search select");
+const filterChar = document.querySelector(".search select");
 const pyro = document.getElementsByClassName("pyro");
 const hydro = document.getElementsByClassName("hydro");
 const anemo = document.getElementsByClassName("anemo");
@@ -8,75 +8,95 @@ const cryo = document.getElementsByClassName("cryo");
 const geo = document.getElementsByClassName("geo");
 const character = document.getElementsByClassName("character");
 
+let selection = 1;
+
 function filterByElement() {
-  console.log(filter.selectedIndex);
-  switch (filter.selectedIndex) {
+  switch (filterChar.selectedIndex) {
     case 0:
       for (i = 0; i < character.length; i++) {
-        character[i].setAttribute("style", "display: block");
+        character[i].classList.remove("hidden");
       }
       break;
     case 1:
       for (i = 0; i < character.length; i++) {
-        character[i].setAttribute("style", "display: none");
+        character[i].classList.add("hidden");
       }
       for (i = 0; i < pyro.length; i++) {
-        pyro[i].setAttribute("style", "display: block");
+        pyro[i].classList.remove("hidden");
       }
       break;
     case 2:
       for (i = 0; i < character.length; i++) {
-        character[i].setAttribute("style", "display: none");
+        character[i].classList.add("hidden");
       }
       for (i = 0; i < hydro.length; i++) {
-        hydro[i].setAttribute("style", "display: block");
+        hydro[i].classList.remove("hidden");
       }
       break;
     case 3:
       for (i = 0; i < character.length; i++) {
-        character[i].setAttribute("style", "display: none");
+        character[i].classList.add("hidden");
       }
       for (i = 0; i < anemo.length; i++) {
-        anemo[i].setAttribute("style", "display: block");
+        anemo[i].classList.remove("hidden");
       }
       break;
     case 4:
       for (i = 0; i < character.length; i++) {
-        character[i].setAttribute("style", "display: none");
+        character[i].classList.add("hidden");
       }
       for (i = 0; i < electro.length; i++) {
-        electro[i].setAttribute("style", "display: block");
+        electro[i].classList.remove("hidden");
       }
       break;
     case 5:
       for (i = 0; i < character.length; i++) {
-        character[i].setAttribute("style", "display: none");
+        character[i].classList.add("hidden");
       }
       for (i = 0; i < dendro.length; i++) {
-        dendro[i].setAttribute("style", "display: block");
+        dendro[i].classList.remove("hidden");
       }
       break;
     case 6:
       for (i = 0; i < character.length; i++) {
-        character[i].setAttribute("style", "display: none");
+        character[i].classList.add("hidden");
       }
       for (i = 0; i < cryo.length; i++) {
-        cryo[i].setAttribute("style", "display: block");
+        cryo[i].classList.remove("hidden");
       }
       break;
     case 7:
       for (i = 0; i < character.length; i++) {
-        character[i].setAttribute("style", "display: none");
+        character[i].classList.add("hidden");
       }
       for (i = 0; i < geo.length; i++) {
-        geo[i].setAttribute("style", "display: block");
+        geo[i].classList.remove("hidden");
       }
       break;
   }
 }
 
-for (let i = 0; i < character.length; i++) {
-  character[i].addEventListener("click", function(e) {
-    e.target.
-  })
+for (i = 0; i < character.length; i++) {
+  character[i].addEventListener("click", (e) => {
+    if (selection === 1) {
+      const banned = document.getElementById("banned");
+      const addChar = document.createElement("img");
+      addChar.src = e.target.src;
+      banned.appendChild(addChar);
+    }
+    if (selection === 2) {
+      const guobaRoster = document.getElementById("guoba-roster");
+      const addChar = document.createElement("img");
+      addChar.src = e.target.src;
+      guobaRoster.appendChild(addChar);
+    }
+    if (selection === 3) {
+      const yuigueRoster = document.getElementById("yuigue-roster");
+      const addChar = document.createElement("img");
+      addChar.src = e.target.src;
+      yuigueRoster.appendChild(addChar);
+    }
+
+    console.log(e.target.src);
+  });
 }
