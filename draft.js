@@ -1,77 +1,77 @@
 const filterChar = document.querySelector(".search select");
-const pyro = document.getElementsByClassName("pyro");
-const hydro = document.getElementsByClassName("hydro");
-const anemo = document.getElementsByClassName("anemo");
-const electro = document.getElementsByClassName("electro");
-const dendro = document.getElementsByClassName("dendro");
-const cryo = document.getElementsByClassName("cryo");
-const geo = document.getElementsByClassName("geo");
-const character = document.getElementsByClassName("character");
+const pyro = document.querySelectorAll(".pyro");
+const hydro = document.querySelectorAll(".hydro");
+const anemo = document.querySelectorAll(".anemo");
+const electro = document.querySelectorAll(".electro");
+const dendro = document.querySelectorAll(".dendro");
+const cryo = document.querySelectorAll(".cryo");
+const geo = document.querySelectorAll(".geo");
+const character = document.querySelectorAll(".character");
 
 let selection = 1;
 
 function filterByElement() {
   switch (filterChar.selectedIndex) {
     case 0:
-      for (i = 0; i < character.length; i++) {
-        character[i].classList.remove("hidden");
-      }
+      character.forEach((element) => {
+        element.classList.remove("hidden");
+      });
       break;
     case 1:
-      for (i = 0; i < character.length; i++) {
-        character[i].classList.add("hidden");
-      }
-      for (i = 0; i < pyro.length; i++) {
-        pyro[i].classList.remove("hidden");
-      }
+      character.forEach((element) => {
+        element.classList.add("hidden");
+      });
+      pyro.forEach((element) => {
+        element.classList.remove("hidden");
+      });
       break;
     case 2:
-      for (i = 0; i < character.length; i++) {
-        character[i].classList.add("hidden");
-      }
-      for (i = 0; i < hydro.length; i++) {
-        hydro[i].classList.remove("hidden");
-      }
+      character.forEach((element) => {
+        element.classList.add("hidden");
+      });
+      hydro.forEach((element) => {
+        element.classList.remove("hidden");
+      });
       break;
     case 3:
-      for (i = 0; i < character.length; i++) {
-        character[i].classList.add("hidden");
-      }
-      for (i = 0; i < anemo.length; i++) {
-        anemo[i].classList.remove("hidden");
-      }
+      character.forEach((element) => {
+        element.classList.add("hidden");
+      });
+      anemo.forEach((element) => {
+        element.classList.remove("hidden");
+      });
       break;
     case 4:
-      for (i = 0; i < character.length; i++) {
-        character[i].classList.add("hidden");
-      }
-      for (i = 0; i < electro.length; i++) {
-        electro[i].classList.remove("hidden");
-      }
+      character.forEach((element) => {
+        element.classList.add("hidden");
+      });
+      electro.forEach((element) => {
+        element.classList.remove("hidden");
+      });
       break;
     case 5:
-      for (i = 0; i < character.length; i++) {
-        character[i].classList.add("hidden");
-      }
-      for (i = 0; i < dendro.length; i++) {
-        dendro[i].classList.remove("hidden");
-      }
+      character.forEach((element) => {
+        element.classList.add("hidden");
+      });
+      dendro.forEach((element) => {
+        element.classList.remove("hidden");
+      });
       break;
     case 6:
-      for (i = 0; i < character.length; i++) {
-        character[i].classList.add("hidden");
-      }
-      for (i = 0; i < cryo.length; i++) {
-        cryo[i].classList.remove("hidden");
-      }
+      character.forEach((element) => {
+        element.classList.add("hidden");
+      });
+      cryo.forEach((element) => {
+        element.classList.remove("hidden");
+      });
       break;
     case 7:
-      for (i = 0; i < character.length; i++) {
-        character[i].classList.add("hidden");
-      }
-      for (i = 0; i < geo.length; i++) {
-        geo[i].classList.remove("hidden");
-      }
+      character.forEach((element) => {
+        element.classList.add("hidden");
+      });
+      geo.forEach((element) => {
+        element.classList.remove("hidden");
+      });
       break;
   }
 }
