@@ -16,7 +16,7 @@ img {
   transition: all 0.2s;
 }
 
-img:hover {
+img.character:hover {
   border: 6px solid #0b2447;
   border-radius: 12px;
 }
@@ -87,14 +87,16 @@ img.traveler {
 }
 
 .draft-table {
+  float: left;
   background: #a5d7e8;
   display: grid;
-  float: left;
   align-items: center;
   justify-content: center;
   width: 50%;
+  min-width: 300px;
   max-width: 700px;
   margin: 20px;
+  margin-top: 60px;
   border-radius: 16px;
   row-gap: 30px;
   padding: 20px;
@@ -104,12 +106,40 @@ img.traveler {
   text-align: center;
 }
 
+.draft-table div {
+  min-height: 100px;
+}
+
+.draft-table button {
+  border: 0;
+  outline: 0;
+  background: #0b2447;
+  color: white;
+  border-radius: 4px;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  max-width: 300px;
+  margin: auto;
+}
+
 .draft-form {
   padding-right: 10px;
   width: 45%;
+  min-width: 400px;
   float: right;
 }
 
 .hidden {
   display: none;
+}
+
+.selected-char {
+  background: #0b2447;
+  margin: 0 2px;
+}
+
+.selected-char:hover {
+  border: 6px solid #a5d7e8;
+  border-radius: 12px;
 }

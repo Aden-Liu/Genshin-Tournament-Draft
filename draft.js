@@ -7,10 +7,16 @@ const dendro = document.querySelectorAll(".dendro");
 const cryo = document.querySelectorAll(".cryo");
 const geo = document.querySelectorAll(".geo");
 const character = document.querySelectorAll(".character");
+const selectedChar = document.querySelectorAll(".selected-char");
 
-let selection = 1;
+let phase = 1;
+let selected = 1;
+let turn = 0;
 
 function filterByElement() {
+  character.forEach((element) => {
+    element.classList.add("hidden");
+  });
   switch (filterChar.selectedIndex) {
     case 0:
       character.forEach((element) => {
@@ -18,57 +24,36 @@ function filterByElement() {
       });
       break;
     case 1:
-      character.forEach((element) => {
-        element.classList.add("hidden");
-      });
       pyro.forEach((element) => {
         element.classList.remove("hidden");
       });
       break;
     case 2:
-      character.forEach((element) => {
-        element.classList.add("hidden");
-      });
       hydro.forEach((element) => {
         element.classList.remove("hidden");
       });
       break;
     case 3:
-      character.forEach((element) => {
-        element.classList.add("hidden");
-      });
       anemo.forEach((element) => {
         element.classList.remove("hidden");
       });
       break;
     case 4:
-      character.forEach((element) => {
-        element.classList.add("hidden");
-      });
       electro.forEach((element) => {
         element.classList.remove("hidden");
       });
       break;
     case 5:
-      character.forEach((element) => {
-        element.classList.add("hidden");
-      });
       dendro.forEach((element) => {
         element.classList.remove("hidden");
       });
       break;
     case 6:
-      character.forEach((element) => {
-        element.classList.add("hidden");
-      });
       cryo.forEach((element) => {
         element.classList.remove("hidden");
       });
       break;
     case 7:
-      character.forEach((element) => {
-        element.classList.add("hidden");
-      });
       geo.forEach((element) => {
         element.classList.remove("hidden");
       });
@@ -76,27 +61,41 @@ function filterByElement() {
   }
 }
 
-for (i = 0; i < character.length; i++) {
-  character[i].addEventListener("click", (e) => {
-    if (selection === 1) {
+character.forEach((element) => {
+  element.addEventListener("click", (e) => {
+    if (selected <= 2) {
       const banned = document.getElementById("banned");
-      const addChar = document.createElement("img");
-      addChar.src = e.target.src;
-      banned.appendChild(addChar);
-    }
-    if (selection === 2) {
       const guobaRoster = document.getElementById("guoba-roster");
-      const addChar = document.createElement("img");
-      addChar.src = e.target.src;
-      guobaRoster.appendChild(addChar);
-    }
-    if (selection === 3) {
       const yuigueRoster = document.getElementById("yuigue-roster");
       const addChar = document.createElement("img");
-      addChar.src = e.target.src;
-      yuigueRoster.appendChild(addChar);
-    }
 
-    console.log(e.target.src);
+      addChar.src = e.target.src;
+      addChar.classList.add("selected-char");
+      addChar.addEventListener("click", (e) => {
+        character.forEach((element) => {
+          if (element.src == e.target.src) {
+            element.classList.remove("chosen");
+          }
+        });
+        e.target.remove();
+        selected--;
+      });
+
+      if ((phase === 1 || phase === 2) && !e.target.classList.contains("chosen")) {
+        banned.appendChild(addChar);
+        selected++;
+      } else if (phase === 3 && !e.target.classList.contains("chosen")) {
+        guobaRoster.appendChild(addChar);
+        selected++;
+      } else if (phase === 4 && !e.target.classList.contains("chosen")) {
+        yuigueRoster.appendChild(addChar);
+        selected++;
+      }
+      e.target.classList.add("chosen");
+    }
   });
+});
+
+function changePhase() {
+  selected = 0;
 }
