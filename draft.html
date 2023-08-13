@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="draft.css" />
+    <script src="https://kit.fontawesome.com/722cc9550a.js" crossorigin="anonymous"></script>
     <title>It's drafting time</title>
   </head>
   <body>
@@ -22,8 +23,8 @@
 
     <div class="draft-form">
       <div class="search">
-        <select name="elements">
-          <option value="0">Select</option>
+        <select name="elements" onchange="filterByElement()">
+          <option value="0">Show All</option>
           <option value="1">Pyro</option>
           <option value="2">Hydro</option>
           <option value="3">Anemo</option>
@@ -32,7 +33,6 @@
           <option value="6">Cryo</option>
           <option value="7">Geo</option>
         </select>
-        <button onclick="filterByElement()">Search</button>
       </div>
       <div class="characters">
         <img src="images/Amber.png" class="pyro character" />

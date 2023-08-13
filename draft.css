@@ -9,6 +9,10 @@ body {
   background: #0b2447;
 }
 
+button {
+  cursor: pointer;
+}
+
 img {
   border-radius: 8px;
   width: 100px;
@@ -74,6 +78,7 @@ img.traveler {
   outline: 0;
   border-radius: 20px;
   padding: 12px 20px;
+  width: 90%;
 }
 
 .search button {
@@ -118,7 +123,6 @@ img.traveler {
   border-radius: 4px;
   padding: 20px;
   font-size: 20px;
-  cursor: pointer;
   max-width: 300px;
   margin: auto;
 }
@@ -141,5 +145,11 @@ img.traveler {
 
 .selected-char:hover {
   border: 6px solid #a5d7e8;
+  border-radius: 12px;
+}
+
+.chosen {
+  opacity: 0.3;
+  border: 6px solid #0b2447;
   border-radius: 12px;
 }
