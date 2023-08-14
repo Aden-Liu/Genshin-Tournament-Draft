@@ -7,10 +7,17 @@ const dendro = document.querySelectorAll(".dendro");
 const cryo = document.querySelectorAll(".cryo");
 const geo = document.querySelectorAll(".geo");
 const character = document.querySelectorAll(".character");
-const selectedChar = document.querySelectorAll(".selected-char");
 
-let phase = 1;
-let selected = 1;
+const banned = document.getElementById("banned");
+const guobaRoster = document.getElementById("guoba-roster");
+const yuigueRoster = document.getElementById("yuigue-roster");
+const freeRoster = document.getElementById("free-roster");
+
+const guobaPrompt = document.getElementById("guoba-prompt");
+const yuiguePrompt = document.getElementById("yuigue-prompt");
+
+let phase = 0;
+let selected = -1000;
 let turn = 0;
 
 function filterByElement() {
@@ -63,10 +70,7 @@ function filterByElement() {
 
 character.forEach((element) => {
   element.addEventListener("click", (e) => {
-    if (selected <= 2) {
-      const banned = document.getElementById("banned");
-      const guobaRoster = document.getElementById("guoba-roster");
-      const yuigueRoster = document.getElementById("yuigue-roster");
+    if (selected < 2) {
       const addChar = document.createElement("img");
 
       addChar.src = e.target.src;
@@ -81,14 +85,17 @@ character.forEach((element) => {
         selected--;
       });
 
-      if ((phase === 1 || phase === 2) && !e.target.classList.contains("chosen")) {
+      if (phase === 1 && !e.target.classList.contains("chosen")) {
         banned.appendChild(addChar);
         selected++;
-      } else if (phase === 3 && !e.target.classList.contains("chosen")) {
+      } else if (phase === 2 && !e.target.classList.contains("chosen")) {
         guobaRoster.appendChild(addChar);
         selected++;
-      } else if (phase === 4 && !e.target.classList.contains("chosen")) {
+      } else if (phase === 3 && !e.target.classList.contains("chosen")) {
         yuigueRoster.appendChild(addChar);
+        selected++;
+      } else if (phase === 0) {
+        freeRoster.appendChild(addChar);
         selected++;
       }
       e.target.classList.add("chosen");
@@ -97,5 +104,129 @@ character.forEach((element) => {
 });
 
 function changePhase() {
-  selected = 0;
+  if (phase != 0 && selected < 2) {
+    document.getElementById("error-prompt").innerHTML = "Pick more characters before proceeding";
+  } else {
+    const selectedChars = document.querySelectorAll(".selected-char");
+    console.log(selectedChars);
+    selectedChars.forEach((element) => {
+      element.removeEventListener("click", (e) => {
+        character.forEach((element) => {
+          if (element.src == e.target.src) {
+            element.classList.remove("chosen");
+          }
+        });
+        e.target.remove();
+        selected--;
+      });
+    });
+    guobaPrompt.innerHTML = "Team Guoba";
+    yuiguePrompt.innerHTML = "Team Yuigue";
+    turn++;
+    switch (turn) {
+      case 1:
+        guobaPrompt.innerHTML += " [Ban 1]";
+        yuiguePrompt.innerHTML += " [Next: Ban 2]";
+        phase = 1;
+        selected = 1;
+        break;
+      case 2:
+        guobaPrompt.innerHTML += " [Next: Ban 1]";
+        yuiguePrompt.innerHTML += " [Ban 2]";
+        selected = 0;
+        break;
+      case 3:
+        guobaPrompt.innerHTML += " [Ban 1]";
+        yuiguePrompt.innerHTML += " [Next: Pick 1]";
+        selected = 1;
+        break;
+      case 4:
+        guobaPrompt.innerHTML += " [Next: Pick 2]";
+        yuiguePrompt.innerHTML += " [Pick 1]";
+        phase = 3;
+        selected = 1;
+        break;
+      case 5:
+        guobaPrompt.innerHTML += " [Pick 2]";
+        yuiguePrompt.innerHTML += " [Next: Pick 2]";
+        phase = 2;
+        selected = 0;
+        break;
+      case 6:
+        guobaPrompt.innerHTML += " [Next: Pick 2]";
+        yuiguePrompt.innerHTML += " [Pick 2]";
+        phase = 3;
+        selected = 0;
+        break;
+      case 7:
+        guobaPrompt.innerHTML += " [Pick 2]";
+        yuiguePrompt.innerHTML += " [Next: Pick 2]";
+        phase = 2;
+        selected = 0;
+        break;
+      case 8:
+        guobaPrompt.innerHTML += " [Next: Pick 1]";
+        yuiguePrompt.innerHTML += " [Pick 2]";
+        phase = 3;
+        selected = 0;
+        break;
+      case 9:
+        guobaPrompt.innerHTML += " [Pick 1]";
+        yuiguePrompt.innerHTML += " [Next: Ban 1]";
+        phase = 2;
+        selected = 1;
+        break;
+      case 10:
+        guobaPrompt.innerHTML += " [Next: Ban 2]";
+        yuiguePrompt.innerHTML += " [Ban 1]";
+        phase = 1;
+        selected = 1;
+        break;
+      case 11:
+        guobaPrompt.innerHTML += " [Ban 2]";
+        yuiguePrompt.innerHTML += " [Next: Ban 1]";
+        selected = 0;
+        break;
+      case 12:
+        guobaPrompt.innerHTML += " [Next: Pick 1]";
+        yuiguePrompt.innerHTML += " [Ban 1]";
+        selected = 1;
+        break;
+      case 13:
+        guobaPrompt.innerHTML += " [Pick 1]";
+        yuiguePrompt.innerHTML += " [Next: Pick 2]";
+        phase = 2;
+        selected = 1;
+        break;
+      case 14:
+        guobaPrompt.innerHTML += " [Next: Pick 2]";
+        yuiguePrompt.innerHTML += " [Pick 2]";
+        phase = 3;
+        selected = 0;
+        break;
+      case 15:
+        guobaPrompt.innerHTML += " [Pick 2]";
+        yuiguePrompt.innerHTML += " [Next: Pick 2]";
+        phase = 2;
+        selected = 0;
+        break;
+      case 16:
+        guobaPrompt.innerHTML += " [Next: Pick 2]";
+        yuiguePrompt.innerHTML += " [Pick 2]";
+        phase = 3;
+        selected = 0;
+        break;
+      case 17:
+        guobaPrompt.innerHTML += " [Pick 2]";
+        yuiguePrompt.innerHTML += " [Next: Pick 1]";
+        phase = 2;
+        selected = 0;
+        break;
+      case 18:
+        yuiguePrompt.innerHTML += " [Pick 1]";
+        phase = 3;
+        selected = 1;
+        break;
+    }
+  }
 }
