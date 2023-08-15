@@ -75,15 +75,7 @@ character.forEach((element) => {
 
       addChar.src = e.target.src;
       addChar.classList.add("selected-char");
-      addChar.addEventListener("click", (e) => {
-        character.forEach((element) => {
-          if (element.src == e.target.src) {
-            element.classList.remove("chosen");
-          }
-        });
-        e.target.remove();
-        selected--;
-      });
+      addChar.addEventListener("click", removeCharacter);
 
       if (phase === 1 && !e.target.classList.contains("chosen")) {
         banned.appendChild(addChar);
@@ -103,6 +95,16 @@ character.forEach((element) => {
   });
 });
 
+const removeCharacter = (e) => {
+  character.forEach((element) => {
+    if (element.src == e.target.src) {
+      element.classList.remove("chosen");
+    }
+  });
+  e.target.remove();
+  selected--;
+};
+
 function changePhase() {
   if (phase != 0 && selected < 2) {
     document.getElementById("error-prompt").innerHTML = "Pick more characters before proceeding";
@@ -110,15 +112,7 @@ function changePhase() {
     const selectedChars = document.querySelectorAll(".selected-char");
     console.log(selectedChars);
     selectedChars.forEach((element) => {
-      element.removeEventListener("click", (e) => {
-        character.forEach((element) => {
-          if (element.src == e.target.src) {
-            element.classList.remove("chosen");
-          }
-        });
-        e.target.remove();
-        selected--;
-      });
+      element.removeEventListener("click", removeCharacter);
     });
     guobaPrompt.innerHTML = "Team Guoba";
     yuiguePrompt.innerHTML = "Team Yuigue";
